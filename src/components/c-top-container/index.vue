@@ -11,7 +11,9 @@
     >
       <view class="">
         <slot name="left">
-          <view class="px-3"><wd-icon name="thin-arrow-left" size="16px"></wd-icon></view>
+          <view class="px-3" @click="goBack">
+            <wd-icon name="thin-arrow-left" size="16px"></wd-icon>
+          </view>
         </slot>
       </view>
       <view class="flex-1" v-if="$slots.mid">
@@ -30,6 +32,10 @@ const statusBarHeight = uni?.getSystemInfoSync?.()?.statusBarHeight || 0 // ç³»ç
 
 const menuButtonPadding = menuButtonInfo ? menuButtonInfo.top - statusBarHeight : 0
 const menuButtonHeight = menuButtonInfo?.height || 60
+
+const goBack = () => {
+  uni.navigateBack()
+}
 </script>
 
 <style lang="scss" scoped>

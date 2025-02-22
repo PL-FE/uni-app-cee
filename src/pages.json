@@ -73,6 +73,15 @@
       }
     },
     {
+      "path": "pages/ai-school-select/index",
+      "type": "page",
+      "layout": "default",
+      "style": {
+        "navigationBarTitleText": "AI智能选校",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/enter-info/index",
       "type": "page",
       "layout": "default",

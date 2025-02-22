@@ -10,7 +10,7 @@
 
 <template>
   <view class="">
-    <cTopContainer class="absolute top w-full"></cTopContainer>
+    <cTopContainer class="absolute top w-full z-1"></cTopContainer>
     <view
       class="absolute top w-full z-0"
       :style="{
