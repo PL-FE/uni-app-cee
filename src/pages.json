@@ -10,6 +10,7 @@
     "autoscan": true,
     "custom": {
       "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue",
+      "^uv-(.*)": "@climblee/uv-ui/components/uv-$1/uv-$1.vue",
       "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
     }
   },
@@ -26,7 +27,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "首页23",
         "icon": "home",
         "iconType": "wot"
       },
@@ -63,9 +64,36 @@
       }
     },
     {
-      "path": "pages/login/index",
+      "path": "pages/ai-consult/index",
+      "type": "page",
+      "layout": "nav",
+      "style": {
+        "navigationBarTitleText": "AI问答",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/enter-info/index",
       "type": "page",
       "layout": "default",
+      "style": {
+        "navigationBarTitleText": "立即填报",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/login/index",
+      "type": "page",
+      "layout": "nav",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/login/phone",
+      "type": "page",
+      "layout": "nav",
       "style": {
         "navigationBarTitleText": "登录",
         "navigationStyle": "custom"

@@ -15,6 +15,7 @@ onHide(() => {
 
 <style lang="scss">
 /* stylelint-disable selector-type-no-unknown */
+
 button::after {
   border: none;
 }
@@ -55,5 +56,31 @@ image {
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+.card--active {
+  background-color: var(--wot-input-disabled-color);
+}
+
+.wd-cell,
+.wd-input.is-cell,
+.wd-picker__cell {
+  background-color: transparent !important;
+}
+
+:root,
+page {
+  --wot-color-theme: #2c8d3a !important;
+  --wot-tabbar-height: 50px;
+  --wot-color-border-light: #e8e8e8;
+  /* 文字颜色（默认浅色背景下 */
+  --wot-color-title: #000; // 模块标题/重要正文 000
+  --wot-color-content: #262626; // 普通正文 262626
+  --wot-color-secondary: #595959; // 次要信息，注释/补充/正文 595959
+  --wot-color-aid: #8c8c8c; // 辅助文字字号，弱化信息，引导性/不可点文字 8c8c8c
+  --wot-color-tip: #bfbfbf; // 失效、默认提示文字 bfbfbf
+  --wot-color-border: #d9d9d9; // 控件边框线 d9d9d9
+  --wot-color-bg: #f5f5f5; // 背景色、禁用填充色 f5f5f5
+  --wot-input-disabled-color: #d9d9d9; // 输入框禁用颜色
 }
 </style>

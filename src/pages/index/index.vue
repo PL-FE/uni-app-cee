@@ -9,51 +9,138 @@
 }
 </route>
 <template>
-  <view
-    class="bg-white overflow-hidden pt-2 px-4"
-    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
-  >
-    <view class="mt-12">
-      <image src="/static/logo.svg" alt="" class="w-28 h-28 block mx-auto" />
+  <view class="relative">
+    <cTopContainer class="absolute top w-full">
+      <template #left>
+        <view class="text-[10px] text-center pl-2">
+          <view>距离高考</view>
+          <view>110天</view>
+        </view>
+      </template>
+      <template #right>
+        <view class="px-2">
+          <uv-input
+            placeholder="搜索学校/专业"
+            border="surround"
+            readonly
+            shape="circle"
+            v-model="searchText"
+            :fontSize="12"
+            :customStyle="{ padding: '2px 6px' }"
+          ></uv-input>
+        </view>
+      </template>
+    </cTopContainer>
+    <view
+      class="center"
+      :style="{
+        paddingTop: safeTop + 'px',
+        height: '480rpx',
+        background: 'var(--wot-color-bg)',
+        borderBottomLeftRadius: '100rpx',
+        borderBottomRightRadius: '100rpx',
+      }"
+    >
+      <view class="text-3xl">
+        大数据透视千校
+        <br />
+        AI定制志愿方案
+      </view>
     </view>
-    <view class="text-center text-4xl main-title-color mt-4">unibest</view>
-    <view class="text-center text-2xl mt-2 mb-8">最好用的 uniapp 开发模板</view>
+    <view class="relative">
+      <view class="absolute! left-[50%] translate-x-[-50%] top-0 translate-y-[-50%]">
+        <wd-button
+          custom-class="custom-shadow"
+          @click="hadnleEntry"
+          style="min-width: 10px !important"
+          :customStyle="{
+            width: '4.5rem',
+            minWidth: '4.5rem',
+            height: '4.5rem',
+          }"
+        >
+          <view class="leading-normal">
+            <view>立即</view>
+            <view>填报</view>
+          </view>
+        </wd-button>
+      </view>
 
-    <view class="text-justify max-w-100 m-auto text-4 indent mb-2">{{ description }}</view>
-    <view class="text-center mt-8">
-      当前平台是：
-      <text class="text-green-500">{{ PLATFORM.platform }}</text>
-    </view>
-    <view class="text-center mt-4">
-      模板分支是：
-      <text class="text-green-500">tabbar</text>
+      <view class="px-3 gap-3 flex flex-col pt-3">
+        <view class="flex gap-3">
+          <view class="box-style" hover-class="card--active">
+            <view class="p-3">
+              <view class="font-bold text-xl leading-loose">AI模拟投档</view>
+              <view class="text-sm text-[var(--wot-color-secondary)]">AI防止滑档！</view>
+              <view class="text-sm text-[var(--wot-color-secondary)]">冲志愿更敢</view>
+            </view>
+          </view>
+          <view class="flex flex-1 gap-3 flex-col">
+            <view class="box-style box-height" hover-class="card--active">
+              <view class="p-3">
+                <view class="font-bold text-xl leading-loose">一分一段表</view>
+                <view class="text-sm text-[var(--wot-color-secondary)]">知分知位！</view>
+                <view class="text-sm text-[var(--wot-color-secondary)]">我的排名我知道</view>
+              </view>
+            </view>
+            <view class="box-style box-height" hover-class="card--active">
+              <view class="p-3">
+                <view class="font-bold text-xl leading-loose">查专业</view>
+                <view class="text-sm text-[var(--wot-color-secondary)]">冷门!=差专业</view>
+                <view class="text-sm text-[var(--wot-color-secondary)]">专业多维数据透视</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="flex gap-3">
+          <view class="box-style box-height" hover-class="card--active">
+            <view class="p-3">
+              <view class="font-bold text-xl leading-loose">查大学</view>
+              <view class="text-sm text-[var(--wot-color-secondary)]">你的理想大学</view>
+              <view class="text-sm text-[var(--wot-color-secondary)]">这里都有</view>
+            </view>
+          </view>
+          <view class="box-style box-height" hover-class="card--active">
+            <view class="p-3">
+              <view class="font-bold text-xl leading-loose">MBIT性格测试</view>
+              <view class="text-sm text-[var(--wot-color-secondary)]">你的性格</view>
+              <view class="text-sm text-[var(--wot-color-secondary)]">本该学这个</view>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { TestEnum } from '@/typings'
-import PLATFORM from '@/utils/platform'
-
+import cTopContainer from '@/components/c-top-container/index.vue'
+import useTopInfo from '@/hooks/useTopInfo'
 defineOptions({
   name: 'Home',
 })
 
-// 获取屏幕边界到安全区域距离
-const { safeAreaInsets } = uni.getSystemInfoSync()
-const author = ref('菲鸽')
-const description = ref(
-  'unibest 是一个集成了多种工具和技术的 uniapp 开发模板，由 uniapp + Vue3 + Ts + Vite4 + UnoCss + UniUI + VSCode 构建，模板具有代码提示、自动格式化、统一配置、代码片段等功能，并内置了许多常用的基本组件和基本功能，让你编写 uniapp 拥有 best 体验。',
-)
-// 测试 uni API 自动引入
-onLoad(() => {
-  console.log(author)
-  console.log(TestEnum.A)
-})
+const searchText = ref('')
+
+const { safeTop } = useTopInfo()
+
+const hadnleEntry = () => {
+  uni.navigateTo({
+    url: '/pages/enter-info/index',
+  })
+}
 </script>
 
-<style>
-.main-title-color {
-  color: #d14328;
+<style lang="scss" scoped>
+.box-style {
+  flex: 1;
+  background-color: var(--wot-color-bg);
+}
+.box-height {
+  min-height: 200rpx;
+}
+
+.card--active {
+  background-color: var(--wot-input-disabled-color);
 }
 </style>
