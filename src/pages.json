@@ -32,16 +32,10 @@
         "iconType": "wot"
       },
       {
-        "pagePath": "pages/about/about",
-        "text": "关于",
-        "icon": "i-carbon-code",
-        "iconType": "unocss"
-      },
-      {
         "pagePath": "pages/my/index",
         "text": "我的",
-        "icon": "iconfont icon-my",
-        "iconType": "iconfont"
+        "icon": "user",
+        "iconType": "wot"
       }
     ]
   },

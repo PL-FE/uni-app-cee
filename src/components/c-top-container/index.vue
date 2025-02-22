@@ -34,6 +34,7 @@ const menuButtonPadding = menuButtonInfo ? menuButtonInfo.top - statusBarHeight 
 const menuButtonHeight = menuButtonInfo?.height || 60
 
 const goBack = () => {
+  console.log(222)
   uni.navigateBack()
 }
 </script>

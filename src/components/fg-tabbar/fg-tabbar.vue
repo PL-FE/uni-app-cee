@@ -8,6 +8,16 @@
     @change="selectTabBar"
   >
     <block v-for="(item, idx) in tabbarList" :key="item.path">
+      <view
+        class="size-[60px] rounded-full translate-y-[-20px] center flex-col bg-white z-1"
+        style="border: 1px solid var(--wot-color-border-light)"
+        v-if="tabbarList.length / 2 === idx"
+        @click="midSwitchTab"
+      >
+        <view>AI</view>
+        <view>问答</view>
+      </view>
+
       <wd-tabbar-item
         v-if="item.iconType === 'wot'"
         :title="item.text"
@@ -48,6 +58,11 @@ function selectTabBar({ value: index }: { value: number }) {
   tabbarStore.setCurIdx(index)
   uni.switchTab({ url })
 }
+
+const midSwitchTab = () => {
+  uni.navigateTo({ url: '/pages/ai-consult/index' })
+}
+
 onLoad(() => {
   // 解决原生 tabBar 未隐藏导致有2个 tabBar 的问题
   // #ifdef APP-PLUS | H5
