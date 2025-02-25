@@ -81,6 +81,7 @@ page {
   --wot-color-tip: #bfbfbf; // 失效、默认提示文字 bfbfbf
   --wot-color-border: #d9d9d9; // 控件边框线 d9d9d9
   --wot-color-bg: #f5f5f5; // 背景色、禁用填充色 f5f5f5
+  --wot-color-bg-bg: #d7d7d7; // 背景色、禁用填充色 f5f5f5
   --wot-input-disabled-color: #d9d9d9; // 输入框禁用颜色
 }
 </style>

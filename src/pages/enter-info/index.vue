@@ -16,7 +16,7 @@
       :style="{
         paddingTop: safeTop + 'px',
         height: '300rpx',
-        background: '#d7d7d7',
+        background: 'var(--wot-color-bg-bg)',
       }"
     ></view>
     <view class="relative z-1" :style="{ paddingTop: safeTop + 'px' }">
@@ -28,7 +28,13 @@
       </view>
       <view class="bg-[var(--wot-color-bg)] m-5 rounded-5">
         <wd-form ref="formRef" :model="model" errorType="toast">
-          <wd-picker :columns="columns" label="单列选项" v-model="model.val1" />
+          <wd-picker
+            :rules="[{ required: true, message: '请选择高考省份' }]"
+            :columns="columns"
+            label="高考省份"
+            prop="val1"
+            v-model="model.val1"
+          />
           <wd-picker :columns="columns" label="高考年份" v-model="model.val2" />
           <wd-cell title="选择科目(6选3)" vertical>
             <cListSelect v-model="model.val6" :list="list" :max="3" />
@@ -39,6 +45,14 @@
             <wd-segmented :options="['男', '女']" v-model:value="model.val5"></wd-segmented>
           </wd-cell>
         </wd-form>
+      </view>
+      <view class="px-15 flex flex-col gap-5 mt-10">
+        <view>
+          <wd-button block @click="goAiSchoolSelect">智能选校</wd-button>
+        </view>
+        <view>
+          <wd-button block>AI智能填报</wd-button>
+        </view>
       </view>
     </view>
   </view>
@@ -73,12 +87,21 @@ function handleSubmit() {
   formRef.value
     .validate()
     .then(({ valid, errors }) => {
+      console.log(111)
       if (valid) {
+        console.log(22, valid)
       }
     })
     .catch((error) => {
       console.log(error, 'error')
     })
+}
+
+const goAiSchoolSelect = () => {
+  // handleSubmit()
+  uni.navigateTo({
+    url: '/pages/ai-school-select/index',
+  })
 }
 </script>
 

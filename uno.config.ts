@@ -76,6 +76,18 @@ export default defineConfig({
     ],
     ['pt-safe', { 'padding-top': 'env(safe-area-inset-top)' }],
     ['pb-safe', { 'padding-bottom': 'env(safe-area-inset-bottom)' }],
+    [
+      'bg-var-bg',
+      {
+        'background-color': 'var(--wot-color-bg)',
+      },
+    ],
+    [
+      'bg-var-bg-bg',
+      {
+        'background-color': 'var(--wot-color-bg-bg)',
+      },
+    ],
   ],
 })
 
