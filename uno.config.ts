@@ -89,6 +89,16 @@ export default defineConfig({
       },
     ],
   ],
+
+  theme: {
+    colors: {
+      primary: 'var(--wot-color-theme)',
+      title: 'var(--wot-color-title)',
+      content: 'var(--wot-color-content)',
+      secondary: 'var(--wot-color-secondary)',
+      aid: 'var(--wot-color-aid)',
+    },
+  },
 })
 
 /**

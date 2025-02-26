@@ -157,7 +157,7 @@ function handleResize(detail: Record<string, string | number>) {
   .wd-slider__has-label {
     padding-top: 0 !important;
   }
-  .dilterTabs {
+  .filterTabs {
     .wd-tabs__nav-item.is-active {
       background-color: var(--wot-color-bg);
       border-top-left-radius: 10px;

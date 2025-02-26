@@ -28,10 +28,10 @@
           class="h-[80vh] max-h-[80vh] min-h-[600px] overflow-hidden flex flex-col"
         >
           <view class="flex justify-between p-5 pb-0">
-            <text class="text-xl font-bold">选择{{ item.name }}</text>
+            <text class="text-lg font-bold">选择{{ item.name }}</text>
             <wd-icon name="close"></wd-icon>
           </view>
-          <view class="text-[var(--wot-color-aid)] px-5">
+          <view class="text-[var(--wot-color-aid)] px-5 text-xs">
             您可以选择您的意向院校信息，筛选可填报志愿
           </view>
           <view class="flex-1 relative">

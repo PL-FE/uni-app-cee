@@ -1,12 +1,14 @@
 <template>
-  <view>
-    <view class="flex flex-wrap gap-2">
+  <view class="grid grid-cols-3 gap-2 w-full custom-tag">
+    <view :class="'col-span-1'" v-for="item in list" :key="item.value" class="w-full">
       <uv-tags
-        v-for="item in list"
+        :customStyle="{
+          justifyContent: 'center',
+        }"
+        class="justify-center w-full"
         :plain="!selectList.includes(item.value)"
-        :key="item.value"
-        :text="item.text"
         @click="onselect(item)"
+        :text="item.text.length >= 7 ? item.text.slice(0, 6) + '...' : item.text"
         :type="onMax && !selectList.includes(item.value) ? 'info' : 'primary'"
       ></uv-tags>
     </view>
@@ -64,6 +66,4 @@ const onselect = (item: any) => {
 }
 </script>
 
-<style lang="scss" scoped>
-//
-</style>
+<style lang="scss" scoped></style>
